@@ -12,6 +12,10 @@ const servicingSchema = new mongoose.Schema({
     required: true,
     max: 100,
   },
+  // productAdmin:{
+  //   type: String,
+  //   required: true 
+  // },
   address: {
     type: String,
     required: true,
