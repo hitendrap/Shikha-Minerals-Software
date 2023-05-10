@@ -22,7 +22,8 @@ ProductController.create = async (req, res) => {
 
   try {
     const { name, code, rate } = validator.value;
-    const savedProduct = await new Product({ name, code, rate }).save();
+    const parentAdmin = req.params.email;
+    const savedProduct = await new Product({ name, code, rate, parentAdmin }).save();
     await new Inventory({
       product: savedProduct._id,
     }).save();
