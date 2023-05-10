@@ -28,7 +28,7 @@ AuthController.login = async (req, res) => {
     return res.redirect('/');
   }
 
-  req.session.user = { name: user.name, role: user.role };
+  req.session.user = { name: user.name, role: user.role, email: user.email, id: user.id};
   res.locals.user = req.session.user;
   await req.session.save();
   res.redirect('/dashboard');

@@ -14,6 +14,7 @@ const RegisterValidator = (data) => {
     email: Joi.string().lowercase().min(5).max(100).required().email().trim(),
     password: Joi.string().required().min(6),
     role: Joi.string().required().lowercase(),
+    parentId: Joi.string(), // null or empty string
   });
   return validateSchema(schema, data);
 };

@@ -28,6 +28,10 @@ const userSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  parentId: {
+    type: String,
+    required: true,
+  },
 });
 
 userSchema.plugin(tz);

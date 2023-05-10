@@ -8,12 +8,13 @@ const {
 const UserController = {};
 
 UserController.create = async (req, res) => {
-  const { name, email, password, role } = req.body;
+  const { name, email, password, role, parentId } = req.body;
   const validator = RegisterValidator({
     name,
     email,
     password,
     role,
+    parentId,
   });
   if (validator.error) {
     req.flash('error', validator.error);
@@ -31,6 +32,7 @@ UserController.create = async (req, res) => {
     email: validator.value.email,
     password: hashedPassword,
     role,
+    parentId: validator.value.parentId,
   });
   try {
     const savedUser = await newUser.save();
